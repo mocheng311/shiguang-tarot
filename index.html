@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="拾光塔罗：78 张牌、三张或五张牌阵，支持正逆位、离线抽牌和本地进度保存。">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>拾光塔罗 | Shiguang Tarot</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%234e375e'/%3E%3Cpath d='M32 8 38 26 56 32 38 38 32 56 26 38 8 32 26 26Z' fill='%23ead0a3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+<main>
+<section id="tarot-table" aria-label="可选三张或五张的互动塔罗牌">
+<header><h1>拾光塔罗</h1><div class="small">78 张牌 · 三张 / 五张牌阵 · 象征图案</div></header>
+<div class="controls"><div class="modes" role="group" aria-label="选牌数量"><button  type="button" data-mode="3" aria-pressed="true">三张牌</button><button  type="button" data-mode="5" aria-pressed="false">五张牌</button></div><label class="check"><input id="tt-reversals" type="checkbox" checked>包含逆位</label><button id="tt-shuffle"  type="button">重新洗牌</button><button id="tt-forget"  type="button">清除本地进度</button></div>
+<label class="question-label small" for="tt-question">想探索的问题（可留空）</label><input id="tt-question" class="question" type="text" maxlength="400" autocomplete="off" placeholder="例如：怎样让我的创意计划迈出第一步？">
+<div id="tt-confirm" class="confirm" hidden><span id="tt-confirm-label">清空本轮选择，重新洗牌？</span><button id="tt-confirm-shuffle"  type="button">确认洗牌</button><button id="tt-cancel-shuffle"  type="button">保留本轮</button></div>
+<div class="caption"><span id="tt-instruction">选 3 张你想翻开的牌</span><span id="tt-progress" class="small" aria-live="polite">已选 0 / 3</span></div>
+<div id="tt-deck" class="deck" role="group" aria-label="78 张已洗好的背面牌"></div><div id="tt-spread" class="spread" role="group" aria-label="按选择顺序排列的牌阵" hidden></div>
+<div class="actions"><button id="tt-reveal" class="primary" type="button" disabled>揭晓这 3 张</button><button id="tt-copy-result" class="primary" type="button" hidden>复制本次结果</button></div>
+<div id="tt-status" class="status small" role="status" aria-live="polite">点牌选择，再点一次可取消；选择顺序就是牌阵顺序。</div>
+<details id="tt-copy" class="small" hidden><summary >查看牌面结果 · 可手动复制</summary><textarea id="tt-result" readonly aria-label="可复制的完整牌面结果"></textarea></details>
+<div class="note">三张：现状 / 阻碍 / 建议　·　五张：现状 / 阻碍 / 潜在影响 / 助力 / 下一步<br>揭晓后可复制牌面结果，记录本次牌阵。<br>所有抽牌操作在浏览器内完成，无需注册或联网。<br><span id="tt-storage">会尝试在此浏览器保存当前问题和牌阵，可用「清除本地进度」删除。无痕模式、移动文件或清理浏览器数据可能使进度失效。</span><br>娱乐与自我探索，不是确定的预言。</div><span id="tt-palette" class="palette" aria-hidden="true"></span>
+</section>
+</main>
+</body>
+</html>
